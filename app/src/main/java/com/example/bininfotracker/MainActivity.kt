@@ -3,19 +3,20 @@ package com.example.bininfotracker
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.example.bininfotracker.ui.CardInfoViewModel
-import com.example.bininfotracker.ui.screens.CardInfoScreen
+import com.example.bininfotracker.ui.HistoryViewModel
+import com.example.bininfotracker.ui.SearchViewModel
 import com.example.bininfotracker.ui.screens.MainScreen
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: CardInfoViewModel by viewModel()
+    private val searchViewModel: SearchViewModel by viewModel()
+    private val historyViewModel: HistoryViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CardInfoScreen(viewModel)
-            MainScreen(cardInfoViewModel = viewModel)
+            MainScreen(searchViewModel = searchViewModel, historyViewModel = historyViewModel)
         }
     }
 }

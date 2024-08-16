@@ -8,8 +8,8 @@ data class CardInfoDto(
 
 data class Country(
     val name: String,
-    val latitude: Long,
-    val longitude: Long
+    val latitude: Int,
+    val longitude: Int
 )
 
 data class Bank(
@@ -17,5 +17,4 @@ data class Bank(
     val url: String,
     val city: String,
     val phone: String
-
 )
