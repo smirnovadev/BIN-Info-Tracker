@@ -2,7 +2,8 @@ package com.example.bininfotracker.domain.api
 
 import com.example.bininfotracker.domain.model.CardInfo
 
-interface HistoryCardInfoInteractor {
-    fun saveToHistory(listCardInfo: CardInfo)
+interface HistoryRepository {
+    fun saveToHistory(cardInfoList: List<CardInfo>)
     fun getCardInfoHistory(): List<CardInfo>
+    fun clearHistory()
 }

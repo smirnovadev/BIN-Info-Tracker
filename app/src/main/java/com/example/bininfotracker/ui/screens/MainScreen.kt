@@ -15,11 +15,12 @@ fun MainScreen(searchViewModel: SearchViewModel, historyViewModel: HistoryViewMo
     val navController = rememberNavController()
     Scaffold(bottomBar = {
         BottomNavigation(navController = navController)
-    }) {
+    }) { innerPadding ->
         NavGraph(
             navHostController = navController,
             searchViewModel = searchViewModel,
-            historyViewModel = historyViewModel
+            historyViewModel = historyViewModel,
+            innerPadding = innerPadding
         )
     }
 

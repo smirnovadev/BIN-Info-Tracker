@@ -1,23 +1,21 @@
 package com.example.bininfotracker.data.network
 
-import android.util.Log
 import com.example.bininfotracker.data.NetWorkClient
-import com.example.bininfotracker.data.dto.request.BinlistInfoRequest
+import com.example.bininfotracker.data.dto.request.Request
 import com.example.bininfotracker.data.dto.response.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class RetrofitNetworkClient
-    (private val binlistApi: BnlistApi) : NetWorkClient {
+    (private val binListApi: BinListApi) : NetWorkClient {
     override suspend fun doRequest(dto: Any): Response {
-        if (dto !is BinlistInfoRequest) {
+        if (dto !is Request) {
             return Response().apply { resultCode = -1 }
         }
         return withContext(Dispatchers.IO) {
             try {
-                val rawResponse = binlistApi.search(dto.query)
-                Log.d("cardinfo", "Response body: ${rawResponse.raw()?.body()?.string()}")
+                val rawResponse = binListApi.search(dto.query)
                 if (rawResponse.isSuccessful) {
                     val response = rawResponse.body() ?: Response()
                     response.apply { resultCode = 200 }

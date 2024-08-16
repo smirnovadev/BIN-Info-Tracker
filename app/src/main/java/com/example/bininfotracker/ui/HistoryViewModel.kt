@@ -1,15 +1,17 @@
 package com.example.bininfotracker.ui
 
-import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
-import com.example.bininfotracker.domain.api.HistoryCardInfoInteractor
+import com.example.bininfotracker.domain.api.HistoryInteractor
 import com.example.bininfotracker.domain.model.CardInfo
 
 class HistoryViewModel(
-    private val historyCardInfoInteractor: HistoryCardInfoInteractor
+    private val historyInteractor: HistoryInteractor
 ): ViewModel() {
     fun getHistoryCardInfo(): List<CardInfo> {
-        return historyCardInfoInteractor.getCardInfoHistory()
+        return historyInteractor.getCardInfoHistory()
     }
 
+    fun clearHistory() {
+        historyInteractor.clearHistory()
+    }
 }

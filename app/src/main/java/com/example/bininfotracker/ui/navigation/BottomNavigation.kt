@@ -24,7 +24,6 @@ fun BottomNavigation(
     val listItems = listOf(
         BottomItem.CardInfoScreen,
         BottomItem.RequestHistoryScreen
-
     )
     NavigationBar(
         Modifier.background(Platinum)

@@ -1,14 +1,14 @@
 package com.example.bininfotracker.data
 
 import android.content.SharedPreferences
-import com.example.bininfotracker.domain.api.HistoryCardInfoRepository
+import com.example.bininfotracker.domain.api.HistoryRepository
 import com.example.bininfotracker.domain.model.CardInfo
 import com.google.gson.Gson
 
-class HistoryCardInfoRepositoryImpl(
+class HistoryRepositoryImpl(
     private val sharedPref: SharedPreferences,
     private val gson: Gson,
-) : HistoryCardInfoRepository {
+) : HistoryRepository {
     override fun saveToHistory(cardInfoList: List<CardInfo>) {
         val newHistoryJson = gson.toJson(cardInfoList)
         sharedPref.edit()
@@ -24,6 +24,11 @@ class HistoryCardInfoRepositoryImpl(
             emptyList()
         }
     }
+
+    override fun clearHistory() {
+        sharedPref.edit().clear().apply()
+    }
+
     companion object {
         private const val CARD_INFO = "card_info"
     }

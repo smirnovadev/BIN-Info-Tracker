@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
 
-interface BnlistApi {
+interface BinListApi {
     @Headers("Accept-Version: 3")
     @GET("/{bin}")
     suspend fun search(@Path("bin") bin: String): Response<CardInfoDto>

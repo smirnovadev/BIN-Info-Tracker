@@ -1,17 +1,16 @@
 package com.example.bininfotracker.di
 
-import com.example.bininfotracker.data.HistoryCardInfoRepositoryImpl
-import com.example.bininfotracker.data.SearchCardInfoRepositoryImpl
-import com.example.bininfotracker.domain.api.HistoryCardInfoRepository
-import com.example.bininfotracker.domain.api.SearchCardInfoRepository
+import com.example.bininfotracker.data.HistoryRepositoryImpl
+import com.example.bininfotracker.data.SearchRepositoryImpl
+import com.example.bininfotracker.domain.api.HistoryRepository
+import com.example.bininfotracker.domain.api.SearchRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<SearchCardInfoRepository> {
-        SearchCardInfoRepositoryImpl(get(), get())
+    single<SearchRepository> {
+        SearchRepositoryImpl(get(), get())
     }
-    single<HistoryCardInfoRepository> {
-        HistoryCardInfoRepositoryImpl(get(), get())
+    single<HistoryRepository> {
+        HistoryRepositoryImpl(get(), get())
     }
-
 }
