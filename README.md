@@ -24,7 +24,7 @@
 ## Скриншоты
 
 ### Главный экран
-![Главный экран](./screenshots/home_screen.png)
+<img src="./screenshots/home_screen.png" alt="Главный экран" width="400"/>
 
 ### Экран деталей
-![Экран деталей](./screenshots/detail_screen.png)
+<img src="./screenshots/detail_screen.png" alt="Экран деталей" width="400"/>
